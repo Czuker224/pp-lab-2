@@ -24,7 +24,7 @@ public class SredniaOcen {
         System.out.println("Podaj ocene z fizyki: ");
         double fizyka = scanner.nextDouble();
         if(sprawdzOcene(fizyka)){
-            oceny[i] = new Ocena("matematyka", fizyka);
+            oceny[i] = new Ocena("fizyka", fizyka);
             i++;
         }else{
             System.out.println("Podana ocena jest niepoprawna. Wprowadź ocene dodatnia mniejsza od 6.");
@@ -33,7 +33,7 @@ public class SredniaOcen {
         System.out.println("Podaj ocene z chemii: ");
         double chemia = scanner.nextDouble();
         if(sprawdzOcene(chemia)){
-            oceny[i] = new Ocena("matematyka", chemia);
+            oceny[i] = new Ocena("chemia", chemia);
             i++;
         }else{
             System.out.println("Podana ocena jest niepoprawna. Wprowadź ocene dodatnia mniejsza od 6.");
