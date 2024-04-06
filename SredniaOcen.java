@@ -23,16 +23,18 @@ public class SredniaOcen {
         oceny[1] = new Ocena("fizyka", fizyka);
         oceny[2] = new Ocena("fizyka", fizyka);
 
-        // Oblicz średnią arytmetyczną
+        // Oblicz średnią arytmetyczną + wyświetla wyniki
+        System.out.println("Lista ocen:");
         double suma = 0;
         for (int i = 0; i < oceny.length; i++) {
+            //wyświetla ocene z przedmiotu
+            System.out.println(oceny[i].getPrzedmiot() + "( "+ oceny[i].getOcena() +" )");
+
             double num = oceny[i].getOcena();
             suma += num;
         }
         double srednia = suma / oceny.length;
 
-
-        // Wyświetl wynik
         System.out.println("Twoja srednia ocen z przedmiotow to: " + srednia);
 
         scanner.close(); // Zamknięcie obiektu Scanner
