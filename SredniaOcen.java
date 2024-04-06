@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class SredniaOcen {
 
@@ -41,16 +42,20 @@ public class SredniaOcen {
         // Oblicz średnią arytmetyczną + wyświetla wyniki
         System.out.println("Lista ocen:");
         double suma = 0;
+        double[] tablicaOcen = new double[i];
         for (i = 0; i < oceny.length; i++) {
             //wyświetla ocene z przedmiotu
             System.out.println(oceny[i].getPrzedmiot() + "( "+ oceny[i].getOcena() +" )");
 
+            tablicaOcen[i] = oceny[i].getOcena(); //przygotowanie do liczenia mediany
             double num = oceny[i].getOcena();
             suma += num;
         }
         double srednia = suma / oceny.length;
 
         System.out.println("Twoja srednia ocen z przedmiotow to: " + srednia);
+        //wyswietlenie mediany obliczMediane
+        System.out.println("Mediana: " + obliczMediane(tablicaOcen));
 
         scanner.close(); // Zamknięcie obiektu Scanner
     }
@@ -61,6 +66,21 @@ public class SredniaOcen {
             return true;
         } else {
             return false;
+        }
+    }
+
+    private static double obliczMediane(double[] oceny) {
+        // Posortowanie tablicy ocen
+        Arrays.sort(oceny);
+
+        int n = oceny.length;
+        if (n % 2 == 1) {
+            // Dla nieparzystej liczby elementów, zwróć ocenę środkową
+            return oceny[n / 2];
+        } else {
+            // Dla parzystej liczby elementów, zwróć średnią arytmetyczną dwóch ocen środkowych
+            int middleIndex = n / 2;
+            return (oceny[middleIndex - 1] + oceny[middleIndex]) / 2.0;
         }
     }
 }
